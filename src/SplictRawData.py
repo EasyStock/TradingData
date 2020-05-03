@@ -1,12 +1,13 @@
 # coding=utf-8
 '''
 @Date: 2020-05-03 13:25:46
-@LastEditTime: 2020-05-03 13:31:11
+@LastEditTime: 2020-05-03 13:58:40
 @Author: yuchonghuang@sina.cn
 '''
 
 import os
 import shutil
+from Utility.Path import PathOperator
 
 def GetFolderNameByDate(date):
     year,month,_ = date.split('-')
@@ -31,16 +32,9 @@ def SplitRawData(srcFolder, destFolder):
         shutil.move(fullpath, destFileName)
         res[date] = destFileName
     return res
-
-def listAllFilesInFolder(folder):
-    allfile=[]
-    for dirpath,_,filenames in os.walk(folder):
-        for name in filenames:
-            allfile.append(os.path.join(dirpath, name))
-    return allfile
     
 def ReCreatIndexOfRawData(srcFolder):
-    files = listAllFilesInFolder(srcFolder)
+    files = PathOperator.listAllFilesInFolder(srcFolder)
     res = {}
     for file_ in files:
         if file_.find('.xls') == -1:
