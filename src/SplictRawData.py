@@ -1,13 +1,13 @@
 # coding=utf-8
 '''
 @Date: 2020-05-03 13:25:46
-@LastEditTime: 2020-05-03 13:58:40
+@LastEditTime: 2020-05-09 15:54:54
 @Author: yuchonghuang@sina.cn
 '''
 
 import os
 import shutil
-from Utility.Path import PathOperator
+from utility.Path import PathOperator
 
 def GetFolderNameByDate(date):
     year,month,_ = date.split('-')
